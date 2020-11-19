@@ -58,4 +58,101 @@ C - O property faz com que a classe fique menor.
 
 D - Não tem diferença entre os dois modelos de acesso.
 
+# Aula 2
+
+Tenho 2 classes que têm comportamentos iguais:
+
+```py
+class Carro:
+    def abastecer(self, litros):
+        pass
+
+class Moto:
+    def abastecer(self, litros):
+        pass
+```
+
+Utilizando herança, como posso fazer para remover esta duplicação?
+
+A -
+```py
+class Veiculo:
+    def abastecer(self, litros):
+        pass
+
+class Moto : Veiculo
+    pass
+
+class Carro : Veiculo
+    pass
+```
+
+B -
+```py
+class Veiculo:
+    def abastecer(self, litros):
+        pass
+
+class Moto extends Veiculo:
+    pass
+
+class Carro extends Veiculo:
+    pass
+```
+
+C -
+```py
+class Veiculo:
+    pass
+
+class Moto(Veiculo):
+    def abastecer(self, litros):
+        pass
+
+class Carro(Veiculo):
+    def abastecer(self, litros):
+        pass
+```
+
+__D__ -
+```py
+class Veiculo:
+    def abastecer(self, litros):
+        pass
+
+class Moto(Veiculo):
+    pass
+
+class Carro(Veiculo):
+    pass
+```
+> Correto, desta forma, o método abastecer é herdado pelas classes Moto e Carro.
+
+---
+
+Quais as vantagens de usar herança para generalizar classes similares?
+
+A - Melhora a performance da classe
+
+__B__ - Compartilhar código com as subclasses
+> Correta! Todas as subclasses tem acesso aos métodos criados na superclasse.
+
+C - Deixar o código das subclasses mais bonito
+
+__D__ - Reduz a duplicação de código e pontos de falha
+> Correta! A herança faz com que o seu código não fique duplicado, reduzindo os pontos de falha.
+
+---
+
+Existem diversas formas de usar herança, mas em alguns momentos queremos fazer algo a mais na subclasse, algo que usa em parte o comportamento da superclasse e adiciona alguma nova funcionalidade.
+
+Como podemos fazer isto?
+
+__A__ - Criar um método com a nova funcionalidade e que também chama o método super() (utilizando comportamentos da superclasse).
+> Correto! Neste caso, conseguimos adicionar comportamento utilizando código da super classe.
+
+B - Criar um método com nome diferente do método da superclasse, sem chamar super().
+
+C - Criar um método que só chama o método super()
+
 ---

@@ -155,7 +155,6 @@ B - Criar um método com nome diferente do método da superclasse, sem chamar su
 
 C - Criar um método que só chama o método super()
 
----
 
 # Aula 3
 
@@ -241,4 +240,45 @@ C - Criar um método str() que retorna este nome como string.
 __D__ - Criar o método especial __str__ que retornará uma representação string do objeto.
 > Correto, este método é chamado pelo print() e pelo str(), ambos built-ins da linguagem.
 
+
+# Aula 4
+
+Quando podemos usar um objeto no for?
+
+
+__A__ - O Objeto deve ser iterable.
+> Correto, o objeto deve ser iterable. O que significa isso, veremos ainda nesse curso.
+
+B - A classe deve herdar da classe ForIn.
+
+C - O Objeto deve ter o método len.
+
+D - Qualquer objeto é iterable.
+
 ---
+
+Quando quero criar uma classe e ela se parece com uma listagem, quais as vantagens de herdar um list?
+
+__A__ - Não vou precisar fazer tudo na mão.
+> Correto, não preciso reinventar a roda, se a classe mãe já tem o que eu preciso.
+
+__B__ - Vou ter as facilidades de suporte do for in, in e outras expressões da linguagem.
+> Correto, ganho um monte de vantagens só porque os aspectos pythonicos da linguagem já conhecem a estrutura da minha classe.
+
+C - Vou conseguir criar objetos de forma mais performática.
+
+D - Não vou poder mudar nem criar comportamentos na minha classe.
+
+---
+
+Quais as desvantagens de se fazer herança de uma classe que não conhecemos completamente?
+
+A - Não temos acesso a todos os métodos.
+
+__B__ - Pode ter comportamentos indesejados internamente, como métodos dependentes.
+> Correto, as vezes o código desconhecido tem efeitos colaterais também.
+
+__C__ - Não podemos sair modificando tudo, pois podemos criar bugs.
+> Correto, no caso se, alguém depende do comportamento da superclasse e nós mudarmos, não tem como controlar a consequência.
+
+D - Temos menos duplicação usando o código da superclasse.

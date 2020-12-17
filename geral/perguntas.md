@@ -156,3 +156,89 @@ B - Criar um método com nome diferente do método da superclasse, sem chamar su
 C - Criar um método que só chama o método super()
 
 ---
+
+# Aula 3
+
+Falamos sobre polimorfismo, e que, quando usamos herança, ganhamos essa vantagem junto com a redução da duplicação. Mas do que se trata o polimorfismo?
+
+A - É quando temos várias classes iguais.
+
+B - É uma forma de herança sem compartilhar comportamento.
+
+C - Polimorfismo é a ideia de compartilhar código entre várias classes.
+
+__D__ - É quando não importa a classe sendo usada, contanto que esta classe herde de uma superclasse específica.
+> Correto. Um código que espera uma superclasse, pode receber qualquer classe filha, reduzindo a quantidade de ifs às vezes, pois não precisamos mais verificar o tipo da classe.
+
+---
+
+Usando polimorfismo, consigo gerar relatórios de qualquer tipo, usando o código abaixo:
+
+```py
+class Relatorio:
+    def gera_relatorio(self):
+        print('Relatório geral')
+
+class RelatorioUsuarios(Relatorio):
+    def gera_relatorio(self):
+        print('Relatório dos usuários')
+
+class RelatorioCustos(Relatorio):
+    def gera_relatorio(self):
+        print('Relatório de custos')
+
+relatorio1 = RelatorioUsuarios()
+relatorio2 = RelatorioCustos()
+relatorio3 = RelatorioUsuarios()
+relatorio4 = RelatorioUsuarios()
+
+relatorios = [relatorio1, relatorio2, relatorio3, relatorio4]
+for rel in relatorios:
+    rel.gera_relatorio()
+```
+
+Em que trecho do código ocorre o polimorfismo?
+
+A -
+```py
+relatorios = [relatorio1, relatorio2, relatorio3, relatorio4]
+```
+
+__B__ -
+```py
+def gera_relatorio(self):
+    print('Relatório geral')
+```
+> Correto, neste momento não importa qual é a classe do relatório.
+
+C -
+```py
+for rel in relatorios:
+    rel.gera_relatorio()
+```
+
+D -
+```py
+class RelatorioUsuarios(Relatorio):
+
+e
+
+class RelatorioCustos(Relatorio):
+```
+
+---
+
+Temos uma classe que define NotaFiscal, então queremos definir uma forma de exibir um objeto NotaFiscal como string para o usuário do sistema.
+
+Qual o jeito pythônico de fazer isto, modificando somente a classe NotaFiscal?
+
+A - Criar um método to_string na classe.
+
+B - Criar um atributo nome na classe.
+
+C - Criar um método str() que retorna este nome como string.
+
+__D__ - Criar o método especial __str__ que retornará uma representação string do objeto.
+> Correto, este método é chamado pelo print() e pelo str(), ambos built-ins da linguagem.
+
+---

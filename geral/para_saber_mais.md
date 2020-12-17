@@ -103,3 +103,37 @@ Note que, no caso acima, não precisamos passar nenhum primeiro argumento fixo p
 Sempre que você usar métodos estáticos em classes que contém herança, observe se não está tentando acessar alguma informação da classe a partir do método estático, pois isso pode dar algumas dores de cabeça pra entender o motivo dos problemas.
 
 Alguns pythonistas não aconselham o uso do @staticmethod, já que poderia ser substituído por uma simples função no corpo do módulo. Outros mais puristas entendem que os métodos estáticos fazem sentido, sim, e que devem ser vistos como responsabilidade das classes.
+
+# Outra forma de representação
+
+Nós vimos como usar ```__str__``` para representar um objeto como string de forma legível.
+
+Falamos sobre uma outra forma de representação, ela pode ajudar bastante se precisarmos encontrar um erro, ou debugar o código.
+
+Assim como o ```__str__```, existe outro método especial chamado ```__repr__```, que é usado para mostrar uma representação que ajude no debug ou log de um código.
+
+Por exemplo, se você quiser entender como funciona seu objeto, ou se está válido, e imprimir o seu valor string, qual resultado abaixo facilita sua vida?
+
+```py
+> Filme(nome='vingadores', ano=2018, duracao=160)
+```
+
+Ou
+
+```py
+> "Filme: Vingadores de 2018 - 160 min"
+```
+
+A primeira deixa bem claro como funciona o objeto. Normalmente, a segunda forma ilustra o que um usuário final ficaria satisfeito em ver.
+
+A ideia da primeira versão é remover ambiguidade e permite, por exemplo, recriar o objeto, já que está mostrando todas as informações.
+
+Outro exemplo, se chamarmos o repr de um objeto do tipo list, podemos ter uma ideia do que é esperado quando criarmos o nosso próprio com ```__repr__```:
+
+```py
+lista = [1, 2, 4, 5]
+
+print(repr(lista))
+```
+
+Se pegarmos o resultado do print, conseguimos recriar o objeto lista.

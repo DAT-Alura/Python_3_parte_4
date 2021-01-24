@@ -245,7 +245,6 @@ __D__ - Criar o método especial __str__ que retornará uma representação stri
 
 Quando podemos usar um objeto no for?
 
-
 __A__ - O Objeto deve ser iterable.
 > Correto, o objeto deve ser iterable. O que significa isso, veremos ainda nesse curso.
 
@@ -282,3 +281,95 @@ __C__ - Não podemos sair modificando tudo, pois podemos criar bugs.
 > Correto, no caso se, alguém depende do comportamento da superclasse e nós mudarmos, não tem como controlar a consequência.
 
 D - Temos menos duplicação usando o código da superclasse.
+
+
+# Aula 5
+
+Às vezes, precisamos reutilizar código pra não precisar ficar refazendo um monte de funções. Vimos herança como uma possível solução para isto.
+
+Marque as opções que mostram quando não devemos usar herança.
+
+A - Quando as classes filhas tiverem métodos iguais.
+
+__B__ - Quando a superclasse adicionar métodos indesejados na nossa classe.
+> Quando a superclasse adicionar métodos indesejados na nossa classe.
+
+
+__C__ - Quando estivermos removendo duplicação, mas a classe filha não puder ser usada onde a superclasse é esperada.
+> Quando estivermos removendo duplicação, mas a classe filha não puder ser usada onde a superclasse é esperada.
+
+D - Quando tivermos reuso de código e de interface ao mesmo tempo.
+
+---
+
+Falando de composição e extensão na orientação a objetos, marque as alternativas corretas:
+
+__A__ - Extensão acontece quando temos uma relação é um entre subclasse e superclasse.
+> Correto, na extensão temos herança e com isso o relacionamento de é um.
+
+B - Composição acontece quando temos uma relação é um entre subclasse e superclasse.
+
+__C__ - Quando fazemos composição, estamos diminuindo o acoplamento.
+> Correto, não ficamos mais presos aos comportamentos da superclasse desta forma, deixando o código menos dependente.
+
+D - Quando fazemos composição, estamos aumentando o acoplamento.
+
+---
+
+Vimos que alguns objetos conseguem suportar idiomas do Python apenas seguindo protocolos parcialmente. Analise o código abaixo e diga o resultado esperado pela execução:
+
+```py
+class Listinha:
+    def __init__(self, items):
+        self.items = items
+
+   def __iter__(self):
+        return self.items.__iter__()
+
+meu_objeto = Listinha([1, 2, 4])
+
+contador = 0
+for item in meu_objeto:
+    contador += 1 
+
+if len(meu_objeto) == contador:
+    print('São iguais!')
+else:
+    print('Não são iguais!')
+```
+
+A - 'Não são iguais!'
+
+B - '3'
+
+C - 'São iguais!'
+
+__D__ - Não vai imprimir nada, pois dá erro na execução.
+> Correto, neste caso não vai conseguir executar, pois sem ter __len__ implementado não dá pra chamar len(meu_objeto).
+
+---
+
+O pacote collections.abc contém diversas classes prontas para serem herdadas. O que acontece se eu implementar uma classe que herda de collections.abc.Sized e executar o código abaixo?
+
+```py
+from collections.abc import Sized
+
+class MinhaListagem(Sized):
+    def __init__(self, descricao):
+        self.descricao = descricao
+
+    def __str__(self):
+        return self.descricao
+
+lista = MinhaListagem()
+print(lista)
+```
+
+A - Imprime o endereço de memória do meu objeto.
+
+B - Imprime []
+
+C - Não imprime nada, pois não tem itens na lista.
+
+__D__ - O código vai dar erro, pois faltou implementar um método.
+> Correto, o método que faltou foi o __len__, que caracteriza a classe abstrata Sized.

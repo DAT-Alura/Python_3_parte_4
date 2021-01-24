@@ -373,3 +373,37 @@ C - Não imprime nada, pois não tem itens na lista.
 
 __D__ - O código vai dar erro, pois faltou implementar um método.
 > Correto, o método que faltou foi o __len__, que caracteriza a classe abstrata Sized.
+
+# Aula 6
+
+No Python, existe a possibilidade de herdar mais de uma classe ao mesmo tempo. Qual vantagem podemos visualizar nesta característica da linguagem?
+
+A - Podemos ter uma subclasse com mais acoplamento.
+
+B - Conseguimos acessar os dados da subclasse a partir das superclasses.
+
+C - É possível herdar uma classe em cada momento.
+
+D - Conseguimos reaproveitar comportamentos de vários locais diferentes, podendo organizar melhor as responsabilidades das superclasses.
+> Correto. Esta é a ideia principal. Desta forma, evitamos encher uma classe com tudo que faz sentido compartilhar (isso no caso de só poder herdar uma classe).
+
+---
+
+A respeito de orientação a objetos no Python e herança múltipla, veja as afirmações abaixo:
+
+1) Os mixins são classes herdadas que não precisam ser instanciadas e contém preocupações comuns a diversas classes.
+
+2) Para fazer herança múltipla em Python, precisamos garantir que duas classes mães não contenham o mesmo método.
+
+3) Podemos usar composição para substituir herança como boa prática de orientação a objetos.
+
+Qual ou quais alternativas estão corretas?
+
+__A__ - 1 e 3
+> Correto, a 2 está errada, pois podemos ter duas superclasses com o mesmo método usando herança múltipla, o algoritmo (mro) tenta resolver qual chamar.
+
+B - 1 e 2
+
+C - 2 e 3
+
+D - Apenas a 1
